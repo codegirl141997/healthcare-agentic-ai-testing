@@ -1,0 +1,19 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 5385f3a..ab03aaf 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -196,3 +196,14 @@[m [mflowchart TD[m
+ - **RAG Evaluator:** Checks grounding, relevance, abstention, and source validity.[m
+ - **QA Observability:** Records execution events and validates agent behavior.[m
+ - **CI/CD:** Runs automated tests and makes reports available for inspection.[m
+[32m+[m
+[32m+[m[32m## Quality Gates[m
+[32m+[m
+[32m+[m[32mThe framework uses automated quality checks to help prevent regressions.[m
+[32m+[m
+[32m+[m[32m- **Test execution:** The pipeline fails when an automated test fails.[m
+[32m+[m[32m- **Coverage threshold:** The configured minimum coverage requirement is enforced during test execution.[m
+[32m+[m[32m- **Test reports:** HTML and machine-readable reports support debugging and result analysis.[m
+[32m+[m[32m- **Continuous integration:** GitHub Actions runs the configured checks on repository events.[m
+[32m+[m
+[32m+[m[32mA successful pipeline indicates that the configured checks passed for that run. Code coverage alone does not guarantee complete test coverage or defect-free behavior.[m
