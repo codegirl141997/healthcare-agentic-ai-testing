@@ -196,3 +196,14 @@ flowchart TD
 - **RAG Evaluator:** Checks grounding, relevance, abstention, and source validity.
 - **QA Observability:** Records execution events and validates agent behavior.
 - **CI/CD:** Runs automated tests and makes reports available for inspection.
+
+## Quality Gates
+
+The framework uses automated quality checks to help prevent regressions.
+
+- **Test execution:** The pipeline fails when an automated test fails.
+- **Coverage threshold:** The configured minimum coverage requirement is enforced during test execution.
+- **Test reports:** HTML and machine-readable reports support debugging and result analysis.
+- **Continuous integration:** GitHub Actions runs the configured checks on repository events.
+
+A successful pipeline indicates that the configured checks passed for that run. Code coverage alone does not guarantee complete test coverage or defect-free behavior.
