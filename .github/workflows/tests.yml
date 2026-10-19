@@ -1,0 +1,49 @@
+
+name: Healthcare AI Testing CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pytest-cov pytest-html
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run tests and enforce coverage
+        run: |
+          python -m pytest -q \
+            --cov=src \
+            --cov-fail-under=90 \
+            --cov-report=term-missing \
+            --cov-report=html:htmlcov \
+            --html=reports/pytest-report.html \
+            --self-contained-html
+
+      - name: Upload test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: healthcare-ai-test-reports
+          path: |
+            reports/pytest-report.html
+            htmlcov/
+          if-no-files-found: warn

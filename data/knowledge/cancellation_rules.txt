@@ -1,0 +1,7 @@
+Healthcare Appointment Cancellation Rules
+
+1. A cancellation request must identify the appointment.
+2. The system must verify that the appointment exists before processing cancellation.
+3. The system must not claim that an appointment was cancelled unless the cancellation service confirms success.
+4. If the appointment cannot be identified, the agent must ask the patient for the missing information.
+5. The agent must report service errors honestly and must not invent a successful cancellation.

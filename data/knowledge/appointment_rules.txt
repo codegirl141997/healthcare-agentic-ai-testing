@@ -1,0 +1,8 @@
+Healthcare Appointment Rules
+
+1. A patient must select an available appointment slot.
+2. A booking request must include valid patient, doctor, date, and time information.
+3. An appointment is confirmed only when the booking service returns a successful confirmation.
+4. An unavailable or already-booked slot must not be booked.
+5. The agent must not claim that an appointment is confirmed before receiving successful confirmation from the booking service.
+6. If the required information is missing, the agent should ask for it instead of inventing details.
