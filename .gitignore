@@ -13,7 +13,8 @@ venv/
 .coverage
 .coverage.*
 htmlcov/
-reports/pytest-report.html
+reports/
+coverage.xml
 
 # Environment variables and secrets
 .env
