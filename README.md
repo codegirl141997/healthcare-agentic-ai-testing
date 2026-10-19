@@ -149,3 +149,50 @@ These results describe the reported execution on 19 October 2026. New runs may p
 QA Automation and AI Testing Portfolio Project
 
 This project demonstrates practical approaches to testing agentic AI workflows, RAG pipelines, tool safety, and CI/CD-based quality assurance.
+
+## Architecture
+
+The framework tests a healthcare appointment agent and its supporting
+tools, RAG pipeline, evaluation logic, and QA observability components.
+
+```mermaid
+flowchart TD
+    A["Pytest Test Suite"]
+
+    A --> B["Agentic and Adversarial Tests"]
+    A --> C["Unit and Integration Tests"]
+    A --> D["RAG and Evaluation Tests"]
+    A --> E["QA Trajectory and Assertion Tests"]
+
+    B --> F["Healthcare Agent"]
+    F --> G["Tool Registry"]
+
+    G --> H["Doctor Search Tool"]
+    G --> I["Appointment Availability Tool"]
+    G --> J["Booking Tool"]
+
+    H --> K["Mock Hospital API"]
+    I --> K
+    J --> K
+
+    F --> L["QA Events and Trajectory"]
+
+    D --> M["RAG Service"]
+    M --> N["Document Retriever"]
+    M --> O["LLM Service"]
+    M --> P["RAG Evaluator"]
+
+    A --> Q["pytest Reports and Coverage"]
+    Q --> R["GitHub Actions CI/CD"]
+```
+
+### Main components
+
+- **Healthcare Agent:** Processes actions and coordinates tool execution.
+- **Tool Registry:** Manages the registered healthcare tools.
+- **Healthcare Tools:** Support doctor search, availability checks, and booking.
+- **Mock Hospital API:** Provides the simulated healthcare service.
+- **RAG Service:** Combines document retrieval and language-model responses.
+- **RAG Evaluator:** Checks grounding, relevance, abstention, and source validity.
+- **QA Observability:** Records execution events and validates agent behavior.
+- **CI/CD:** Runs automated tests and makes reports available for inspection.
